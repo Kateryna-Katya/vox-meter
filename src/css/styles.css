@@ -1598,3 +1598,81 @@ a {
     overflow: hidden;
     display: block;
 }
+.hero__title {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: #ffffff;
+    /* Обычный цвет как запасной */
+    background: linear-gradient(to right, #ffffff, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Убираем любые скрывающие свойства */
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative;
+    z-index: 5;
+}
+
+/* Стили для SplitType — задаем только один уровень вложенности для надежности */
+.hero__title .char {
+    display: inline-block;
+    will-change: transform, opacity;
+}
+/* ГАРАНТИЯ ВИДИМОСТИ ЗАГОЛОВКА */
+.hero__title {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    overflow: visible !important;
+    /* Убираем скрытие на уровне контейнера */
+}
+
+/* Стили для слов, которые создаст SplitType */
+.word {
+    display: inline-block;
+    white-space: nowrap;
+    will-change: transform, opacity;
+}
+
+/* Ограничиваем область анимации только внутри строк, если нужно */
+.line-wrapper {
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+/* Фикс для Swiper, чтобы он не схлопывался */
+.cases-slider {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+}
+/* ГАРАНТИРОВАННАЯ ВИДИМОСТЬ */
+.hero__title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    /* Адаптивный размер */
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: #ffffff;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    /* Отключаем сторонние трансформации */
+    background: linear-gradient(to right, #fff, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block !important;
+}
+
+/* Скрываем элементы для анимации только через этот класс */
+.fade-in-hero {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.cases-slider {
+    width: 100%;
+    min-height: 450px;
+    opacity: 1 !important;
+}
