@@ -1579,3 +1579,22 @@ a {
         font-size: 1.8rem;
     }
 }
+.hero__title {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    /* Убираем прозрачность текста по умолчанию, добавим её через GSAP */
+    color: #fff;
+    background: linear-gradient(to right, #fff, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 1 !important;
+    /* Гарантируем видимость */
+    visibility: visible !important;
+}
+
+/* Стили для строк, которые создаст SplitType */
+.line {
+    overflow: hidden;
+    display: block;
+}
