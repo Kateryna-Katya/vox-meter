@@ -5,29 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page 2</title>
-    <link rel="stylesheet" crossorigin href="/vox-meter/assets/styles-guStct1H.css">
+    <link rel="stylesheet" crossorigin href="/vox-meter/assets/styles-Dz-wtrWV.css">
   </head>
   <body>
-    <header class="header">
-  <div class="container">
-    <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        <svg class="nav-logo-icon" width="100" height="30">
-          <use href="{=$icon-path}"></use>
-        </svg>
-      </a>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-act}" href="./page-2.html">Page 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">Page 3</a>
-        </li>
+    <header class="header" id="header">
+  <div class="container header__container">
+    <a href="/" class="logo">
+      <span class="logo__dot"></span>
+      Vox-Meter
+    </a>
+
+    <nav class="nav" id="nav-menu">
+      <ul class="nav__list">
+        <li><a href="#hero" class="nav__link">Главная</a></li>
+        <li><a href="#tech" class="nav__link">Технологии</a></li>
+        <li><a href="#benefits" class="nav__link">Преимущества</a></li>
+        <li><a href="#blog" class="nav__link">Блог</a></li>
+        <li><a href="#cases" class="nav__link">Кейсы</a></li>
       </ul>
     </nav>
+
+    <div class="header__actions">
+      <a href="#contact" class="btn btn--secondary">Связаться</a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span>
+      </button>
+    </div>
   </div>
 </header>
-
 
     <main>
       <div class="container">
@@ -39,19 +44,58 @@
 
     <footer class="footer">
   <div class="container">
-    <p class="footer-desc">
-      Made with ✨ by
-      <a
-        class="footer-link"
-        href="https://goit.global/ua/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GoIT team
-      </a>
-    </p>
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a href="/" class="logo logo--footer">Vox-Meter</a>
+        <p class="footer__text">Передовая цифровая инфраструктура для автоматизации вашего бизнеса во Франции и по всему
+          миру.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__title">Навигация</h4>
+        <ul class="footer__links">
+          <li><a href="#tech">Технологии</a></li>
+          <li><a href="#benefits">Преимущества</a></li>
+          <li><a href="#blog">Блог</a></li>
+          <li><a href="#cases">Кейсы</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__title">Правовая информация</h4>
+        <ul class="footer__links">
+<li><a href="privacy.html">Конфиденциальность</a></li>
+<li><a href="cookies.html">Cookie файлы</a></li>
+<li><a href="terms.html">Условия использования</a></li>
+<li><a href="disclaimer.html">Отказ от ответственности</a></li>
+<li><a href="personal-data-policy.html">Персональные данные</a></li>
+<li><a href="return.html">Возврат средств</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__title">Контакты</h4>
+        <ul class="footer__contact">
+          <li>
+            <i data-lucide="map-pin"></i>
+            <span>12 Rue de la Paix, 75002 Paris, France</span>
+          </li>
+          <li>
+            <i data-lucide="phone"></i>
+            <span>+33 1 42 68 53 00</span>
+          </li>
+          <li>
+            <i data-lucide="mail"></i>
+            <span>hello@vox-meter.blog</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 Vox-Meter. Платформа года. Технологии, которые работают на вас.</p>
+    </div>
   </div>
 </footer>
-
   </body>
 </html>
