@@ -1866,3 +1866,81 @@ a {
         transform: translateY(0);
     }
 }
+/* Стили для юридических страниц */
+.pages {
+    padding: 160px 0 100px;
+    /* Отступ под фиксированный хедер */
+    background: var(--bg);
+}
+
+.pages h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 40px;
+    font-family: 'Syne', sans-serif;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pages h2 {
+    font-size: 1.8rem;
+    margin: 40px 0 20px;
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+}
+
+.pages p {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.pages ul {
+    margin: 20px 0 30px;
+    padding-left: 20px;
+}
+
+.pages li {
+    list-style: none;
+    position: relative;
+    color: var(--text-dim);
+    margin-bottom: 15px;
+    padding-left: 25px;
+    line-height: 1.6;
+}
+
+/* Красивый маркер для списков в стиле Vox-Meter */
+.pages li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.pages a {
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+    transition: var(--transition);
+}
+
+.pages a:hover {
+    border-color: var(--primary);
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .pages {
+        padding-top: 120px;
+    }
+
+    .pages h1 {
+        font-size: 2.2rem;
+    }
+}
