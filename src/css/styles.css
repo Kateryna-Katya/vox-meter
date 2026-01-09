@@ -1676,3 +1676,193 @@ a {
     min-height: 450px;
     opacity: 1 !important;
 }
+/* --- Исправление Хедера для мобильных --- */
+
+.header {
+    width: 100%;
+    /* Гарантируем, что хедер не будет шире экрана */
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+}
+
+.header__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Убеждаемся, что отступы всегда внутри 100% ширины */
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Запрещаем элементам внутри сжиматься или выталкивать друг друга */
+    flex-shrink: 0;
+}
+
+@media (max-width: 992px) {
+    .header {
+        /* На мобильных лучше делать чуть меньше отступы сверху */
+        padding: 15px 0;
+    }
+
+    .logo {
+        /* Уменьшаем шрифт логотипа, чтобы оставить место для бургера */
+        font-size: 1.2rem;
+        flex-shrink: 1;
+        white-space: nowrap;
+    }
+
+    .header__actions .btn {
+        /* На планшетах можно скрыть текст кнопки "Связаться", оставив только иконку или убрав её */
+        display: none;
+    }
+
+    /* Если кнопка "Связаться" нужна в хедере на мобилках, 
+       лучше оставить только бургер для чистоты UI */
+    .burger {
+        display: flex;
+        flex-shrink: 0;
+        /* Убеждаемся, что по нему легко попасть пальцем */
+        padding: 5px;
+        margin-right: -5px;
+    }
+}
+
+/* Фикс для очень маленьких экранов (iPhone SE и т.д.) */
+@media (max-width: 380px) {
+    .logo {
+        font-size: 1.1rem;
+    }
+}
+/* --- Исправленное Мобильное Меню --- */
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Полная высота экрана */
+    z-index: 2000;
+    /* Выше хедера и всего остального */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Скрытие по умолчанию */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Состояние, когда меню открыто */
+.mobile-menu.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+.mobile-menu__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 12, 0.98);
+    /* Очень темный фон */
+    backdrop-filter: blur(15px);
+    z-index: -1;
+}
+
+.mobile-menu__container {
+    width: 100%;
+    max-width: var(--container-width);
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.mobile-nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 0;
+}
+
+.mobile-nav__link {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    /* Оптимальный размер для мобильных */
+    font-weight: 800;
+    color: #ffffff !important;
+    /* Гарантированный белый цвет */
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: var(--transition);
+    display: block;
+}
+
+.mobile-nav__link:hover {
+    color: var(--primary) !important;
+    transform: scale(1.1);
+}
+
+.mobile-nav__link--cta {
+    color: var(--accent) !important;
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+.mobile-menu__footer {
+    margin-top: 50px;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+/* Анимация элементов внутри меню при открытии */
+.mobile-menu.is-active .mobile-nav__link {
+    animation: fadeInUpMobile 0.5s ease forwards;
+    opacity: 0;
+}
+
+/* Поочередное появление ссылок */
+.mobile-menu.is-active .mobile-nav__link:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.mobile-menu.is-active .mobile-nav__link:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.mobile-menu.is-active .mobile-nav__link:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.mobile-menu.is-active .mobile-nav__link:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.mobile-menu.is-active .mobile-nav__link:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeInUpMobile {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
