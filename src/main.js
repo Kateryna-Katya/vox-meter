@@ -67,4 +67,18 @@ function initHeroAnimation() {
         stagger: 0.2,
         clearProps: "all" // Очищаем свойства после анимации, чтобы не мешать ховерам
     }, 1.2);
+    // Анимация секции Tech (Bento Grid)
+gsap.utils.toArray('.fade-up').forEach((el) => {
+    gsap.from(el, {
+        scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none none"
+        },
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+    });
+});
 };
