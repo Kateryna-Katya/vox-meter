@@ -31,4 +31,40 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    initHeroAnimation();
 });
+
+function initHeroAnimation() {
+    // Регистрируем плагин (если используем ScrollTrigger, но здесь пока только базовая анимация при загрузке)
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Разбиваем текст заголовка на слова и буквы
+    const titleText = new SplitType('.hero__title.text-reveal', { types: 'words, chars' });
+
+    // Создаем таймлайн
+    const tl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.2 } });
+
+    // Анимация бейджа
+    tl.from('.hero__badge', {
+        y: 20,
+        opacity: 0,
+        duration: 0.8
+    }, 0.3);
+
+    // Анимация заголовка по буквам
+    tl.from(titleText.chars, {
+        y: 100,
+        opacity: 0,
+        stagger: 0.02,
+        rotateX: -90,
+        transformOrigin: "0% 50% -50"
+    }, 0.5);
+
+    // Анимация остальных элементов (подзаголовок, кнопки, статистика, визуал)
+    tl.from('.fade-in', {
+        y: 40,
+        opacity: 0,
+        stagger: 0.2,
+        clearProps: "all" // Очищаем свойства после анимации, чтобы не мешать ховерам
+    }, 1.2);
+};

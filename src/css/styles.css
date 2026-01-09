@@ -223,3 +223,305 @@ a {
         gap: 40px;
     }
 }
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    padding: 180px 0 100px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero__container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Фоновое свечение */
+.hero__bg-glow {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(244, 114, 182, 0.1) 50%, transparent 70%);
+    filter: blur(80px);
+    z-index: 1;
+    animation: pulse-glow 10s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1.2) rotate(20deg);
+        opacity: 0.8;
+    }
+}
+
+/* Контент */
+.hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 24px;
+}
+
+.hero__badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.hero__title {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    background: linear-gradient(to right, #fff, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Для анимации SplitType */
+    overflow: hidden;
+}
+
+/* Класс, который добавляет SplitType для строк */
+.line {
+    overflow: hidden;
+    padding-bottom: 0.1em;
+    /* Компенсация обрезки символов */
+}
+
+.hero__subtitle {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    max-width: 540px;
+    margin-bottom: 40px;
+}
+
+.hero__actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+.btn--primary {
+    background: var(--primary);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 10px 25px -10px rgba(99, 102, 241, 0.6);
+}
+
+.btn--primary i {
+    width: 18px;
+    transition: transform 0.3s ease;
+}
+
+.btn--primary:hover {
+    background: #4f46e5;
+    box-shadow: 0 15px 35px -10px rgba(99, 102, 241, 0.8);
+}
+
+.btn--primary:hover i {
+    transform: translateX(4px);
+}
+
+/* Статистика */
+.hero__stats {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-separator {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Visual часть (правая колонка) */
+.hero__visual {
+    position: relative;
+    perspective: 1000px;
+}
+
+.visual-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    transform: rotateY(-10deg) rotateX(5deg);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.visual-card:hover {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+}
+
+.visual-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.8;
+    mix-blend-mode: lighten;
+}
+
+.visual-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.4), transparent 60%);
+    pointer-events: none;
+}
+
+/* Плавающие элементы */
+.floating-element {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: rgba(22, 22, 26, 0.8);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    backdrop-filter: blur(12px);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+.floating-element i {
+    color: var(--accent);
+    width: 20px;
+}
+
+.float-1 {
+    top: 10%;
+    left: -40px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.float-2 {
+    bottom: 15%;
+    right: -30px;
+    animation: float 7s ease-in-out infinite reverse 1s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Адаптив Hero */
+@media (max-width: 992px) {
+    .hero {
+        padding-top: 140px;
+        text-align: center;
+    }
+
+    .hero__container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .hero__title {
+        font-size: 3rem;
+    }
+
+    .hero__subtitle {
+        margin: 0 auto 40px;
+    }
+
+    .hero__actions {
+        justify-content: center;
+    }
+
+    .hero__stats {
+        justify-content: center;
+    }
+
+    .visual-card {
+        transform: rotateY(0) rotateX(0);
+    }
+
+    .floating-element {
+        display: none;
+    }
+
+    /* Убираем на планшетах для чистоты */
+}
+
+@media (max-width: 576px) {
+    .hero__title {
+        font-size: 2.2rem;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero__stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .stat-separator {
+        width: 40px;
+        height: 1px;
+    }
+}
