@@ -81,4 +81,17 @@ gsap.utils.toArray('.fade-up').forEach((el) => {
         ease: "power3.out"
     });
 });
+    // Добавляем в конец DOMContentLoaded
+gsap.utils.toArray('.fade-right').forEach((el) => {
+    gsap.from(el, {
+        scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+        },
+        x: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+    });
+});
 };
