@@ -850,4 +850,154 @@ a {
     .benefit-card {
         padding: 30px;
     }
+}/* --- Innovations Section --- */
+.innovations {
+    padding: 100px 0;
+    background: #0a0a0c;
+    position: relative;
+}
+
+.innovations__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+/* Terminal Design */
+.innovations__terminal {
+    position: relative;
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8);
+}
+
+.terminal__header {
+    background: #1a1a1e;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.terminal__dots {
+    display: flex;
+    gap: 6px;
+}
+
+.terminal__dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #444;
+}
+
+.terminal__dots span:nth-child(1) {
+    background: #ff5f56;
+}
+
+.terminal__dots span:nth-child(2) {
+    background: #ffbd2e;
+}
+
+.terminal__dots span:nth-child(3) {
+    background: #27c93f;
+}
+
+.terminal__title {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+}
+
+.terminal__body {
+    padding: 30px;
+    min-height: 300px;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.terminal__line {
+    margin-bottom: 8px;
+}
+
+.t-purple {
+    color: #c678dd;
+}
+
+.t-green {
+    color: #98c379;
+    text-shadow: 0 0 10px rgba(152, 195, 121, 0.5);
+}
+
+.terminal__cursor {
+    display: inline-block;
+    width: 8px;
+    height: 18px;
+    background: var(--primary);
+    margin-left: 5px;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.terminal__glow {
+    position: absolute;
+    bottom: -20px;
+    left: 20%;
+    width: 60%;
+    height: 20px;
+    background: var(--primary);
+    filter: blur(40px);
+    opacity: 0.3;
+}
+
+/* Content Styles */
+.innovations__list {
+    margin: 40px 0;
+}
+
+.innovations__list li {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.innovations__list i {
+    color: var(--primary);
+    width: 28px;
+    flex-shrink: 0;
+}
+
+.innovations__list strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.innovations__list span {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+/* Mobile */
+@media (max-width: 992px) {
+    .innovations__grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .innovations__terminal {
+        order: 2;
+    }
 }
